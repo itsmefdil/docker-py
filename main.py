@@ -55,6 +55,16 @@ def container(container_name: str):
         container_info = {
             "status": container.status,
         }
+
+        if container.status == "exited":
+            raise HTTPException(
+                status_code=404,
+                detail=f"Container '{container_name}' is in 'exited' state.",
+            )
         return {"container": container_info}
+    except docker.errors.NotFound:
+        raise HTTPException(
+            status_code=404, detail=f"Container '{container_name}' not found."
+        )
     except Exception as e:
-        return {"error": str(e)}
+        raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")
