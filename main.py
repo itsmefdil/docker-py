@@ -67,4 +67,4 @@ def container(container_name: str):
             status_code=404, detail=f"Container '{container_name}' not found."
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")
+        raise HTTPException(status_code=404, detail=f"An error occurred: {str(e)}")
