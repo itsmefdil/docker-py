@@ -5,11 +5,12 @@ from fastapi import FastAPI
 
 app = FastAPI()
 docker_client = docker.from_env()
+version = open("version.txt", "r").read()
 
 
 @app.get("/")
 def root():
-    return {"message": "Hello World"}
+    return {"message": "Docker API", "version": version}
 
 
 @app.get("/containers")
