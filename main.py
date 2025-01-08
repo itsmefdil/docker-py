@@ -46,3 +46,15 @@ def container(container_name: str):
         return {"container": container_info}
     except Exception as e:
         return {"error": str(e)}
+
+
+@app.get("/containers/status/{container_name}")
+def container(container_name: str):
+    try:
+        container = docker_client.containers.get(container_name)
+        container_info = {
+            "status": container.status,
+        }
+        return {"container": container_info}
+    except Exception as e:
+        return {"error": str(e)}
