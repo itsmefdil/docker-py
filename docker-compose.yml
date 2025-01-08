@@ -1,0 +1,10 @@
+services:
+  docker-api:
+    build: .
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - .:/app
+    ports: 
+      - 8000:8000
+    working_dir: /app
+    command: uvicorn main:app --host 0.0.0.0
