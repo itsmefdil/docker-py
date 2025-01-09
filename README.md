@@ -26,5 +26,5 @@ curl http://localhost:8000/containers/{container_name}
 
 3. Get Container Status
 ```bash
-curl http://localhost:8000/containers/status/{container_nam}
+curl http://localhost:8000/containers/status/{container_name}
 ```

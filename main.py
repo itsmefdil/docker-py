@@ -10,7 +10,7 @@ version = open("version.txt", "r").read()
 
 @app.get("/")
 def root():
-    return {"message": "Docker API", "version": version}
+    return {"message": "Docker Monitoring API", "version": version}
 
 
 @app.get("/containers")
